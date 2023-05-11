@@ -1,0 +1,281 @@
+/*
+Bogdan Stefurak
+Mauro Arena
+Manuel Chavarry
+11/05/2023
+1er ASIXcA
+Codi CSS per fer una web d'una alarma i d'una ruleta.
+*/
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+body{
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #10101E;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.alarm{
+    border: 3px solid black;}
+.datetime{
+    color: #fff;
+    background: #440707;
+    font-family: "Segoe UI", sans-serif;
+    width: 340px;
+    padding: 15px 10px;
+    transition: 0.5s;
+    transition-property: background,box-shadow;
+}
+
+
+.date{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.time{
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.time span:not(:last-child){
+    position: relative;
+    max-width: 0 6px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.time span:last-child{
+    background: crimson;
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 10px;
+    padding: 0 5px;
+}
+
+hr{
+    background: crimson;
+    border: 1px solid ;
+    margin: 20px auto;
+}
+
+.setAlarm{
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.column select{
+    background: crimson;
+    color: #fff;
+    text-align: center;
+    padding: 8px 4px;
+    border: 1px solid crimson;
+}
+
+
+#btn-setAlarm, .btn-delete, #stopAlarm{
+    padding: 5px;
+    color: #fff;
+    background: rgb(202, 26, 26);
+}
+
+#stopAlarm{
+    visibility: hidden;
+    width: 100px;
+    margin: 0 34%;
+}
+
+.btn-delete{
+    margin-left: 50px;
+}
+
+
+h3{
+    color: #a82e2e98;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+.alarmList{
+    color: #a82e2e98;
+    margin: 14px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.alarmLog{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6px auto;
+}
+
+
+
+
+
+
+/* css modo ligth y dark */
+.icon-sun, .icon-moon {
+    font-size: 20px;
+    display: none;
+}
+
+.icon-moon {
+    display: inline;
+}
+
+#toggleTheme {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.light-theme {
+    --background-color: #fff;
+    --text-color: #10101E;
+    --accent-color: #2E94E3;
+}
+
+.dark-theme {
+    --background-color: #10101E;
+    --text-color: #fff;
+    --accent-color: #2E94E3;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+
+/*css ruleta*/
+
+@import url('https:///fonts.googleapis.com/css?family-Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+.container
+{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .spinBtn
+{
+    
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 0.1em;
+    border: 4px solid rgba(0,0,0,0.75);
+    cursor: pointer;
+    user-select: none;
+}
+.container .spinBtn::before
+{
+    content: '';
+    position: absolute;
+    top: -28px;
+    width: 20px;
+    height: 30px;
+    background: #fff;
+    clip-path: polygon(50% 0%, 15% 100%, 85% 100%);
+}
+.container .wheel
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    background: #333;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 0 5px #333,
+    0 0 0 15px #fff,
+    0 0 0 18px #111;
+    transition: transform 5s ease-in-out;
+}
+.container .wheel .string
+{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: var(--clr);
+    transform-origin: bottom right;
+    transform: rotate(calc(45deg * var(--i)));
+    clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    font-size: small;
+}
+.container .wheel .number span
+{
+    position: relative;
+    transform: rotate(45deg);
+    font-size: 2em;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 3px 5px 2px rgba(0,0,0,0.15);
+}
+.container .wheel .number span::after
+{
+    content: '$';
+    position: absolute;
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+Apartado {
+    height: 400px;
+    width: auto;
+    display: block;
+    background-color: transparent;
+}
+
+apartadoimg img{
+    display: inline;
+}
+

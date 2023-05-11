@@ -1,0 +1,138 @@
+<!--
+
+Bogdan Stefurak
+Mauro Arena
+Manuel Chavarry
+11/05/2023
+1er ASIXcA
+Codi HTML per fer una web d'una alarma i d'una ruleta.
+
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pequeñas Utilidades</title>
+
+    
+    <!-- External CSS File -->
+    <link rel="stylesheet" href="Estilo.css">
+</head>
+<body id="body" onload="initClock()">
+
+        <Apartado id="Apartado"> EL DESPERTADOR DE NUNCA JAMÁS!!!1!!!!!1!!11!!! (Pulse los parametros y decida cuando quiere despertase)</Apartado>
+        <Apartado id="Apartador"></Apartado>
+    <div class="alarm">
+
+        <div class="datetime">
+            <div class="date">
+                <span id="dayName">Día</span>,
+                <span id="month">Mes</span>,
+                <span id="dayNum">00</span>,
+                <span id="year">Año</span>
+            </div>
+            <div class="time">
+                <span id="hour">00</span>:
+                <span id="minutes">00</span>:
+                <span id="seconds">00</span>:
+                <span id="period">AM</span>
+            </div>
+            <button id="stopAlarm" onclick="stopAlarm()">Stop Alarm</button>
+
+            <button id="toggleTheme" onclick="toggleTheme()">
+                <span class="icon-sun">&#9728;</span>
+                <span class="icon-moon">&#127769;</span>
+            </button>
+        </div>
+
+        <hr>
+
+        <div class="setAlarm">
+
+            <div class="column">
+                <select>
+                    <option value="setHour" selected hidden>Hora</option>
+                </select>
+            </div>
+
+            <div class="column">
+                <select>
+                    <option value="setMinute" selected hidden>Minuto</option>
+                    
+                </select>
+            </div>
+
+            <div class="column">
+                <select>
+                    <option value="AM/PM" selected hidden>AM/PM</option>
+                </select>
+            </div>
+
+            <button id="btn-setAlarm" type="submit">Set Alarm</button>
+
+            <div class="column">
+                <select id="alarmSound">
+                    <option value="audio\audio1.mp3" selected>Melodía 1</option>
+                    <option value="audio\audio2.mp3">Melodía 2</option>
+                    <option value="audio\audio3.mp3">Melodía 3</option>
+                </select>
+            </div>
+                       
+        </div>
+
+        <hr>
+
+        <h3 id="alarm-h3"></h3>
+
+        <div class="alarmList">
+                
+            
+        </div>
+
+
+        
+    </div>
+        
+    <Apartado id="Apartadorr"> LA RULETA DEL TERROR!!!1!!!!!1!!11!!! (Pulse el botón y deje que la ruleta gire)</Apartado>
+    <apartadoimg>
+        <img src="Imagenes/proxy-image.gif"/>
+        <img src="Imagenes/proxy-image.gif"/>
+        <img src="Imagenes/proxy-image.gif"/>
+        <img src="Imagenes/proxy-image.gif"/>
+        <img src="Imagenes/proxy-image.gif"/>
+        <img src="Imagenes/proxy-image.gif"/>
+        <img src="Imagenes/proxy-image.gif"/>
+        <img src="Imagenes/proxy-image.gif"/>
+    </apartadoimg>
+    <hr>
+
+    <div class="container">
+        <div class="spinBtn">gira</div>
+        <div class= "wheel">
+            <div class="string" style="--i:1;--clr: #db7093;">
+                <span>The professor chooses</span></div>
+            <div class="string" style="--i:2;--clr: #70dbdb;">
+                <span>mauro.arena.7e6@itb.cat</span></div>
+            <div class="string" style="--i:3;--clr: #ce084a;">
+                <span>gerardo.chavarry.7e6@itb.cat</span></div>
+            <div class="string" style="--i:4;--clr: #dbc270;">
+                <span>bogdan.stefurak.7e6@itb.cat</span></div>
+            <div class="string" style="--i:5;--clr: #eb3f78;">
+                <span>onur.aynali.7e6@itb.cat</span></div>
+            <div class="string" style="--i:6;--clr: #ecadc2;">
+                <span>oriol.barba.7e6@itb.cat</span></div>
+            <div class="string" style="--i:7;--clr: #70db82;">
+                <span>ruben.blas.7e6@itb.cat</span></div>
+            <div class="string" style="--i:8;--clr: #709bdb;">
+                <span>juan.canyas.7e6@itb.cat</span></div>
+        </div>
+    </div>
+    <audio id="winSound" src="audio\sonidoRuleta.wav" preload="auto"></audio>
+    <script src="RuletaReloj.js"></script>
+</body>
+</html>
